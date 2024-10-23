@@ -1,5 +1,6 @@
 from turtle import Turtle
 from random import randint, choice
+import time
 
 
 class Ball(Turtle):
@@ -38,10 +39,11 @@ class Ball(Turtle):
         self.setheading(180-self.heading()+randint(-20, 20))
 
     def move(self):
-        self.forward(4)
+        self.forward(6)
 
     def round_over(self, right_won):
         self.goto(0, 0)
+        time.sleep(0.7)
         if right_won:
             self.left_initial_angle()
         else:

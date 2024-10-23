@@ -31,10 +31,10 @@ class Scoreboard(Turtle):
         self.goto(0, 0)
         self.color("Blue")
         if Player2Won:
-            self.write(f"GAME OVER \n Player: {self.name1} Won! \n With {self.score_r} Score!",
+            self.write(f"GAME OVER \n{self.name1} Won!\n With {self.score_r} Score!",
                        align=ALIGNMENT, font=FONT)
         else:
-            self.write(f"GAME OVER \n Player: {self.name2} Won! \n With {self.score_l} Score!",
+            self.write(f"GAME OVER \n{self.name2} Won! \nWith {self.score_l} Score!",
                        align=ALIGNMENT, font=FONT)
 
     def increase_score_l(self):

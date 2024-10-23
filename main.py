@@ -47,15 +47,15 @@ def s_false():
 
 def check_for_wall(ball: Ball) -> None:
     global current_time
-    if abs(ball.ycor()) >= 260:
-        if time.time()-current_time > 0.3:
+    if ball.ycor() >= 270 or ball.ycor() <= -260:
+        if time.time()-current_time > 0.5:
             ball.bounce_angle()
             current_time = time.time()
 
 
 def paddle_bounce(ball: Ball):
     global current_time_1
-    if time.time()-current_time_1 > 0.3:
+    if time.time()-current_time_1 > 0.5:
         ball.paddle_bounce()
         current_time_1 = time.time()
 
@@ -112,7 +112,7 @@ def main() -> None:
     screen.onkeyrelease(s_false, "s")
     while game_is_on:
         screen.update()
-        time.sleep(0.005)
+        time.sleep(0.0035)
         ball.move()
         if paddle_r.collision(ball.position()):
             paddle_bounce(ball)
@@ -144,6 +144,8 @@ def main() -> None:
         if scoreboard.score_l == max_points or scoreboard.score_r == max_points:
             middle_line.clear()
             ball.reset()
+            paddle_l.reset()
+            paddle_r.reset()
             if scoreboard.score_l == max_points:
                 scoreboard.game_over(False)
             elif scoreboard.score_r == max_points:
